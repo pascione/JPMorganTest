@@ -1,0 +1,12 @@
+package message;
+
+import java.math.BigDecimal;
+
+import product.Product;
+
+public class Sale {
+
+	private Product product;
+	private long quantity;
+	private BigDecimal totalValue;
+}

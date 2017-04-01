@@ -1,0 +1,17 @@
+package com;
+
+import message.Message;
+import receiver.ReceiverManager;
+
+public class Queue implements IQueue {
+
+	private ReceiverManager receiver;
+	
+	@Override
+	public void sendMessage(Message message) {
+		if (receiver != null)
+			receiver.receiveMessage(message);
+
+	}
+
+}

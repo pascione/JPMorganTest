@@ -1,0 +1,18 @@
+package sender;
+
+import receiver.IReceiver;
+
+public class SenderManager implements ISender {
+
+	@Override
+	public void sendMessage(IReceiver receiver) {
+		if(receiver != null)
+			receiver.receiveMessage(this);
+		
+	}
+
+	
+
+	
+
+}

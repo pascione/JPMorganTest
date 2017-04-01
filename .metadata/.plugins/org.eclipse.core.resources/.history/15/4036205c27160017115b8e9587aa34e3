@@ -1,0 +1,6 @@
+package receiver;
+
+public interface IReceiverVisitor {
+	public void registerReceiver(IReceiver receiver);
+
+}

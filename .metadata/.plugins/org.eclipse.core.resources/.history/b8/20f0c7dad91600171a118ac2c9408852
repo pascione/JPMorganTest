@@ -1,0 +1,72 @@
+import java.math.BigDecimal;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import message.Message;
+import product.Product;
+import queue.Queue;
+import receiver.IReceiver;
+import receiver.MessageReceiver;
+
+public class TestMessage1 {
+
+	private Queue queue;
+	private IReceiver receiver;
+	private Message message,message2;
+	private static final String insertedMessage = "Message Received";
+	private static final String inserted10Message = "Message Received\r\n"+
+			"10 message received: Detailed Report\r\n"+
+			"Product: apple Total Sales:10 Total Value:100\r\n";
+
+	@Before
+	public void setUp() throws Exception {
+		queue = new Queue();
+		receiver = new MessageReceiver();
+		queue.setReceiver(receiver);
+		Product apple = new Product();
+		apple.setType("apple");
+		Product banana = new Product();
+		banana.setType("banana");
+
+		message = new Message();
+		message.setProduct(apple);
+		message.setPrice(new BigDecimal(10));
+		
+		message2 = new Message();
+		message2.setProduct(banana);
+		message.setPrice(new BigDecimal(5));
+	}
+
+	@Test
+	public void testMessageISReceived() {
+		String logMessage = "";
+		logMessage = queue.queueMessage(message);
+		Assert.assertEquals(insertedMessage, logMessage);
+	}
+	
+	@Test
+	public void test10MessageReceived() {
+		String logMessage = "";
+		for(int i=0;i<10;i++)
+		{
+			logMessage = queue.queueMessage(message);
+		}
+		Assert.assertEquals(inserted10Message, logMessage);
+	}
+	@Test
+	public void test20MessageReceived() {
+		String logMessage = "";
+		String messageToBeChecked = "Message Received\r\n"+
+	"10 message received: Detailed Report\r\n"+
+	"Product: apple Total Sales:20 Total Value:200\r\n";
+		for(int i=0;i<20;i++)
+		{
+			logMessage = queue.queueMessage(message);
+			logMessage = queue.queueMessage(message2);
+			
+		}
+		Assert.assertEquals(messageToBeChecked, logMessage);
+	}
+}

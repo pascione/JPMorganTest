@@ -1,0 +1,10 @@
+package receiver;
+
+public class ReceiverImpl implements IReceiver {
+
+	@Override
+	public void receiveMessage(IReceiver receiver) {
+		receiver.receiveMessage(this);
+	}
+
+}

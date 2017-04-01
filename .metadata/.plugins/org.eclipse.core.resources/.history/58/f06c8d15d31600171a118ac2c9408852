@@ -1,0 +1,32 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import product.Product;
+import queue.Queue;
+import receiver.IReceiver;
+import receiver.MessageReceiver;
+
+public class TestMessage1 {
+
+	private Queue queue;
+	private IReceiver receiver;
+	@Before
+	public void setUp() throws Exception {
+		Queue queue = new Queue();
+		IReceiver receiver = new MessageReceiver();
+		queue.setReceiver(receiver);
+		Product apple = new Product();
+		apple.setType("apple");
+		Product banana = new Product();
+		banana.setType("banana");
+		
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

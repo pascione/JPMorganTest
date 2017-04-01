@@ -1,0 +1,32 @@
+package message;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class MessageProcessor {
+
+	private Map<String, Sale> salesProcessing;
+
+	public MessageProcessor() {		
+		salesProcessing = new HashMap<String, Sale>();
+	}
+
+	public void processMessage(Message message) {
+		String key = message.getProduct().getType();
+		/*List<Sale> listOfSales = salesProcessing.get(key);
+		if (listOfSales == null)
+			listOfSales = new ArrayList<Sale>();
+		listOfSales.add(message.getSaleItem());
+		*/
+		Sale existingSales = salesProcessing.get(key);
+		if (existingSales != null)
+		{
+			existingSales.setQuantity(existingSales.getQuantity() + message.getQuantity()());
+			
+		}
+		this.salesProcessing.put(key, );
+
+	}
+}

@@ -1,0 +1,35 @@
+package message;
+
+import java.math.BigDecimal;
+
+import product.Product;
+import receiver.IReceiver;
+
+public class MessageType3 extends Message implements IMessage {
+
+	private String adjOperation;
+	private BigDecimal adjPrice;
+
+	public String getAdjOperation() {
+		return adjOperation;
+	}
+
+	public void setAdjOperation(String adjOperation) {
+		this.adjOperation = adjOperation;
+	}
+
+	public BigDecimal getAdjPrice() {
+		return adjPrice;
+	}
+
+	public void setAdjPrice(BigDecimal adjPrice) {
+		this.adjPrice = adjPrice;
+	}
+
+	@Override
+	public void sendMessage(IReceiver receiver) {
+		if (receiver != null)
+			receiver.receiveMessage(this);
+
+	}
+}

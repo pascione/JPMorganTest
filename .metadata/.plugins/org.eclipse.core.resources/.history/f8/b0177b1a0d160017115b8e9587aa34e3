@@ -1,0 +1,10 @@
+package message;
+
+import java.math.BigDecimal;
+
+import product.Product;
+
+public class Sale {
+
+	
+}

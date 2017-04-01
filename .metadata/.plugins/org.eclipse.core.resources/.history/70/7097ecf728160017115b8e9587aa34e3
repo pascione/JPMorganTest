@@ -1,0 +1,12 @@
+package receiver;
+
+public class ReceiverImpl implements IReceiver {
+
+	@Override
+	public void receiveMessage(IReceiverVisitor receiverVisitor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+}

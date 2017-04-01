@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="MessageApplication"/>
+<fullyQualifiedTypeName name="com.QueueManager"/>
+<fullyQualifiedTypeName name="sender.MessageSender"/>
+<fullyQualifiedTypeName name="com.Queue"/>
+<fullyQualifiedTypeName name="message.MessageProcessor"/>
+<fullyQualifiedTypeName name="message.SaleMessage"/>
+<fullyQualifiedTypeName name="database.SalesDB"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="message.Sale"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="product.Product"/>
+<fullyQualifiedTypeName name="receiver.IReceiverVisitor"/>
+<fullyQualifiedTypeName name="receiver.ReceiverManager"/>
+<fullyQualifiedTypeName name="com.IQueue"/>
+<fullyQualifiedTypeName name="sender.ISender"/>
+<fullyQualifiedTypeName name="message.MessageType1"/>
+<fullyQualifiedTypeName name="message.MessageType2"/>
+<fullyQualifiedTypeName name="receiver.MessageReceiver"/>
+<fullyQualifiedTypeName name="message.MessageType12"/>
+<fullyQualifiedTypeName name="message.MessageType3"/>
+<fullyQualifiedTypeName name="message.IMessage"/>
+<fullyQualifiedTypeName name="message.Message"/>
+<fullyQualifiedTypeName name="receiver.IReceiver"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="queue.Queue"/>
+<fullyQualifiedTypeName name="queue.IQueue"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="message.OperationEnum"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="message.OperationMessage"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

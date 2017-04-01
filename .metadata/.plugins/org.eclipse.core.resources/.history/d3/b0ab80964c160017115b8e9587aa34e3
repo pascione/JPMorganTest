@@ -1,0 +1,27 @@
+package sender;
+
+import com.IQueue;
+import com.Queue;
+
+import message.Message;
+
+public class MessageSender {
+
+	private Queue messageQueue;
+
+	public MessageSender(Queue messageQueue) {
+		super();
+		this.messageQueue = messageQueue;
+	}
+
+	public void sendMessage(Message message) {
+		if (messageQueue != null)
+			messageQueue.queueMessage(receiver);(message);
+	}
+
+	public void sendMessage(IQueue queue) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

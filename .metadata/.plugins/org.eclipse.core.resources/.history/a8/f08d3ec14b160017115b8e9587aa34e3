@@ -1,0 +1,8 @@
+package com;
+
+import message.Message;
+import receiver.IReceiver;
+
+public interface IQueue {
+	public void sendMessage(IReceiver receiver);
+}

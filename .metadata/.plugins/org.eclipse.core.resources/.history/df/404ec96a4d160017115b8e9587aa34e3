@@ -1,0 +1,16 @@
+package sender;
+
+import com.IQueue;
+
+import message.MessageType1;
+import message.MessageType2;
+import message.MessageType3;
+
+public interface ISender {
+
+	public void sendMessage(IQueue queue);
+	
+	public Message getMessage();
+	
+	
+}

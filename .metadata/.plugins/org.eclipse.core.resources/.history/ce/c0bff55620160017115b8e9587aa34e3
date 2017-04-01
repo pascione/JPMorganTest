@@ -1,0 +1,13 @@
+package message;
+
+import java.math.BigDecimal;
+
+import product.Product;
+
+public class MessageType3 extends Message {
+
+	private String adjOperation;
+	private BigDecimal adjPrice;
+	
+	
+}

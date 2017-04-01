@@ -1,0 +1,28 @@
+package database;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import message.Message;
+import message.Sale;
+
+public class SalesDB {
+	private List<Sale> listOfSales;
+	
+	public SalesDB(){
+		listOfSales = new ArrayList<Sale>();
+	}
+	
+	//All sales must be recorded
+	public void addSale(Message message)
+	{
+		try{
+		listOfSales.add(sale);
+		}
+		catch(Exception e)
+		{
+			
+		}
+	}
+
+}

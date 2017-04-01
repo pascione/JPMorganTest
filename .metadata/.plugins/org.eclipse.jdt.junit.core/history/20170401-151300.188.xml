@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestMessage1" project="JPTest" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="TestMessage1" time="0.001">
+    <testcase name="testAdjustmentMessageReceived" classname="TestMessage1" time="0.001"/>
+    <testcase name="test10MessageReceived" classname="TestMessage1" time="0.0"/>
+    <testcase name="test2ProductsMessageReceived" classname="TestMessage1" time="0.0"/>
+    <testcase name="testMessageISReceived" classname="TestMessage1" time="0.0"/>
+  </testsuite>
+</testrun>

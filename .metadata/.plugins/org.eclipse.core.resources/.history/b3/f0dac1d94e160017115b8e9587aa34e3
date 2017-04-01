@@ -1,0 +1,10 @@
+package sender;
+
+import receiver.IReceiver;
+
+public interface ISender {
+
+	public void sendMessage(IReceiver receiver);
+	
+	
+}

@@ -1,0 +1,9 @@
+package receiver;
+
+import message.MessageType1;
+import message.MessageType2;
+import message.MessageType3;
+
+public class ReceiverImpl implements IReceiver {
+
+}

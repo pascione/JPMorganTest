@@ -1,0 +1,13 @@
+package queue;
+
+import message.Message;
+
+public class Queue implements IQueue {
+
+	@Override
+	public void queueMessage(Message message) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

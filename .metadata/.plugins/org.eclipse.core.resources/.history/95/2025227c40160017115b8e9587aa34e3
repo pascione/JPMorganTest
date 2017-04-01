@@ -1,0 +1,46 @@
+package message;
+
+import java.math.BigDecimal;
+
+import product.Product;
+
+public class Message implements IMessage{
+
+	private Product product;
+	private long quantity;
+	private BigDecimal price;
+
+	public Message() {
+		this.quantity = 1;
+	}
+
+	protected Product getProduct() {
+		return product;
+	}
+
+	protected void setProduct(Product product) {
+		this.product = product;
+	}
+
+	protected long getQuantity() {
+		return quantity;
+	}
+
+	protected void setQuantity(long quantity) {
+		this.quantity = quantity;
+	}
+
+	protected BigDecimal getPrice() {
+		return price;
+	}
+
+	protected void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	@Override
+	public IMessage generateMessage() {
+		return this;
+	}
+
+}

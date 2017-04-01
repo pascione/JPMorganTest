@@ -1,0 +1,13 @@
+package sender;
+
+import message.Message;
+
+public class MessageSender implements ISend {
+
+	@Override
+	public void sendMessage(Message message) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

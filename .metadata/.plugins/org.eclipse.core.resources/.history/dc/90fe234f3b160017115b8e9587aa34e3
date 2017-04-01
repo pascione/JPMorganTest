@@ -1,0 +1,67 @@
+package receiver;
+
+import java.util.Map;
+
+import database.SalesDB;
+import message.Message;
+import message.MessageProcessor;
+import message.MessageType1;
+import message.MessageType2;
+import message.MessageType3;
+import message.Sale;
+
+public class MessageReceiver implements IReceiverVisitor {
+
+	private int counter1;
+	private int counter2;
+	private static final int counter10 = 10;
+	private static final int counter50 = 50;
+	private SalesDB db;
+	private MessageProcessor processor;
+
+	public MessageReceiver() {
+		super();
+		this.db = new SalesDB();
+		this.processor = new MessageProcessor();
+		this.counter1 = 0;
+		this.counter2 = 0;
+	}
+
+	@Override
+	public void receiveMessage(MessageType1 message) {
+		// All messages must be processed
+		counter1++;
+		db.addSale(message);
+		processor.processMessage(message);
+		if (counter1 >= counter10) {
+			printReport();
+			counter1 = 0;
+		}
+
+	}
+
+	@Override
+	public void receiveMessage(MessageType2 message) {
+		receiveMessage(message);
+		System.out.println("MESSAGE TYPE 2");
+
+	}
+
+	@Override
+	public void receiveMessage(MessageType3 message) {
+		System.out.println("MESSAGE TYPE 3");
+
+	}
+
+	private void printReport() {
+		System.out.println("10th message received: Detailed Report");
+		Map<String, Sale> salesProcessed = processor.getSalesProcessing();
+		for (Map.Entry<String, Sale> entry : salesProcessed.entrySet()) {
+			Sale saleItem = entry.getValue();
+			System.out.println("Product: " + saleItem.getProduct().getType() + " Total Sales:" + saleItem.getQuantity()
+					+ " Total Value:" + saleItem.getTotalValue());
+		}
+		System.out.println("");
+	}
+
+}

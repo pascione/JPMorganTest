@@ -1,0 +1,7 @@
+package com;
+import message.IMessage;
+
+public interface IQueue {
+
+		public IMessage generateMessage();
+}

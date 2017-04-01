@@ -1,0 +1,38 @@
+package message;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+public class MessageProcessor {
+
+	private Map<String, Sale> salesProcessing;
+
+	public MessageProcessor() {
+		salesProcessing = new HashMap<String, Sale>();
+	}
+
+	public void processMessage(Message message) {
+		String key = message.getProduct().getType().toUpperCase();
+		Sale existingSales = salesProcessing.get(key);
+		if (existingSales != null) {
+			existingSales.setQuantity(existingSales.getQuantity() + message.getQuantity());
+			BigDecimal updatedValue = message.getPrice().multiply(new BigDecimal(message.getQuantity()))
+					.add(existingSales.getTotalValue());
+			existingSales.setTotalValue(updatedValue);
+
+		} else {
+			existingSales = new Sale();
+			existingSales.setProduct(message.getProduct());
+			existingSales.setQuantity(message.getQuantity());
+			existingSales.setTotalValue(message.getPrice().multiply(new BigDecimal(message.getQuantity())));
+		}
+		this.salesProcessing.put(key, existingSales);
+
+	}
+
+	public Map<String, Sale> getSalesProcessing() {
+		return salesProcessing;
+	}
+
+}

@@ -1,0 +1,101 @@
+package receiver;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+import message.Message;
+import message.OperationEnum;
+import message.OperationMessage;
+
+public class MessageProcessor {
+
+	private Map<String, Sale> salesProcessing;
+
+	public MessageProcessor() {
+		salesProcessing = new HashMap<String, Sale>();
+	}
+
+	public boolean processMessage(Message message) {
+		boolean retValue = true;
+
+		if (!checkMessage(message))
+			return false;
+		try {
+			String key = message.getProduct().getType().toUpperCase();
+			Sale existingSales = salesProcessing.get(key);
+			if (existingSales != null) {
+				existingSales.setQuantity(existingSales.getQuantity() + message.getQuantity());
+				BigDecimal updatedValue = message.getPrice().multiply(new BigDecimal(message.getQuantity()))
+						.add(existingSales.getTotalValue());
+				existingSales.setTotalValue(updatedValue);
+
+			} else {
+				existingSales = new Sale();
+				existingSales.setProduct(message.getProduct());
+				existingSales.setQuantity(message.getQuantity());
+				existingSales.setTotalValue(message.getPrice().multiply(new BigDecimal(message.getQuantity())));
+			}
+			if (message.getOperation() != null)
+				processAdjustmentMessage(message);
+			this.salesProcessing.put(key, existingSales);
+		} catch (Exception e) {
+			retValue = false;
+		}
+		return retValue;
+
+	}
+
+	private boolean processAdjustmentMessage(Message message) {
+		OperationMessage opMessage = message.getOperation();
+		if (!checkOperationMessage(opMessage))
+			return false;
+		OperationEnum operation = opMessage.getAdjOperation();
+		String key = message.getProduct().getType().toUpperCase();
+		Sale existingSales = salesProcessing.get(key);
+		if (existingSales == null) {
+			return false;
+		}
+		switch(operation)
+		{
+		case ADD:
+			BigDecimal addValue = opMessage.getAdjPrice().multiply(new BigDecimal(message.getQuantity()));
+			existingSales.setTotalValue(existingSales.getTotalValue().add(addValue));
+			break;
+		case MULTIPLY:
+			existingSales.setTotalValue(existingSales.getTotalValue().multiply(opMessage.getAdjPrice()));
+			break;
+		case SUBTRACT:
+			BigDecimal subValue = opMessage.getAdjPrice().multiply(new BigDecimal(message.getQuantity()));
+			existingSales.setTotalValue(existingSales.getTotalValue().subtract(subValue));
+			break;
+		}
+		return false;		
+	}
+	
+	public Map<String, Sale> getSales() {
+		return salesProcessing;
+	}
+
+	private boolean checkMessage(Message message) {
+
+		if ((message.getProduct() != null) && (message.getPrice() != null)) {
+			return true;
+		} else {
+			System.out.println("Invalid Message");
+			return false;
+		}
+
+	}
+	private boolean checkOperationMessage(OperationMessage message) {
+
+		if ((message.getAdjOperation() != null) && (message.getAdjPrice() != null)) {
+			return true;
+		} else {
+			System.out.println("Invalid Operation Message");
+			return false;
+		}
+
+	}
+
+}

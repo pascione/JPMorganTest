@@ -1,0 +1,48 @@
+package com;
+
+import message.IMessage;
+import message.Message;
+import receiver.IReceiver;
+import receiver.IReceiverVisitor;
+import receiver.ReceiverManager;
+import sender.ISender;
+
+public class Queue implements IQueue {
+
+	private ReceiverManager receiver;
+	private ISender sender;
+
+	public Queue() {
+
+	}
+
+	public Queue(IReceiverVisitor receiver, ISender sender) {
+		super();
+		this.receiver = receiver;
+		this.sender = sender;
+	}
+
+	public IReceiverVisitor getReceiver() {
+		return receiver;
+	}
+
+	public void setReceiver(IReceiverVisitor receiver) {
+		this.receiver = receiver;
+	}
+
+	public ISender getSender() {
+		return sender;
+	}
+
+	public void setSender(ISender sender) {
+		this.sender = sender;
+	}
+
+	@Override
+	public void sendMessage(IMessage message) {
+		if (receiver != null)
+			receiver.receiveMessage(message);
+
+	}
+
+}

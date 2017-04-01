@@ -1,0 +1,12 @@
+package database;
+
+import java.util.List;
+
+public class SalesDB {
+	private List listOfSales;
+	
+	public SalesDB(){
+		
+	}
+
+}

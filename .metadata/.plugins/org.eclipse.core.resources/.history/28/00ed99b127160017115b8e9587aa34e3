@@ -1,0 +1,11 @@
+package receiver;
+
+public class ReceiverImpl implements IReceiver {
+
+	@Override
+	public void registerReceiver(IReceiverVisitor receiver) {
+		
+
+	}
+
+}

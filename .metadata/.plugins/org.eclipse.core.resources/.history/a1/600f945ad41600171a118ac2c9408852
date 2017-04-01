@@ -1,0 +1,77 @@
+package receiver;
+
+import java.util.List;
+import java.util.Map;
+
+import database.SalesDB;
+import message.Message;
+
+public class MessageReceiver implements IReceiver {
+
+	private int counter1;
+	private int counter2;
+	private static final int counter10 = 10;
+	private static final int counter50 = 50;
+	private SalesDB<Message> db;
+	private MessageProcessor processor;
+
+	public MessageReceiver() {
+		super();
+		this.db = new SalesDB<Message>();
+		this.processor = new MessageProcessor();
+		this.counter1 = 0;
+		this.counter2 = 0;
+	}
+
+	@Override
+	public void receiveMessage(Message message) {
+		String logMessage;
+		counter1++;
+		counter2++;
+		processSale(message);
+		if (counter1 >= counter10) {
+			logMessage = printReport();
+			counter1 = 0;
+		}
+		if (counter2 >= counter50) {
+			logMessage = printAdjustmentReport();
+			counter2 = 0;
+		}
+
+	}
+
+	private void processSale(Message message) {
+		try {
+			if (processor.processMessage(message))
+				db.addSale(message);
+		} catch (Exception e) {
+		}
+
+	}
+
+	private String printReport() {
+		String logMessage = "10 message received: Detailed Report";
+		Map<String, Sale> salesProcessed = processor.getSales();
+		for (Map.Entry<String, Sale> entry : salesProcessed.entrySet()) {
+			Sale saleItem = entry.getValue();
+			logMessage += "Product: " + saleItem.getProduct().getType() + " Total Sales:" + saleItem.getQuantity()
+					+ " Total Value:" + saleItem.getTotalValue();
+		}
+		return logMessage;
+	}
+
+	private void printAdjustmentReport() {
+		System.out.println("50 message received: Application is in pause");
+		System.out.println("Report of adjustments messages received");
+		List<Message> adjMessagesProcessed = processor.getAdjMessageList();
+		for(Message m : adjMessagesProcessed)
+		{
+			String log = "Adjustment Operation: " + m.getOperation().getAdjOperation().toString() + " " +
+					m.getOperation().getAdjPrice() + "p to " +
+					m.getProduct().getType().toString();
+			System.out.println(log);
+		}
+		System.out.println("");
+	}
+
+}

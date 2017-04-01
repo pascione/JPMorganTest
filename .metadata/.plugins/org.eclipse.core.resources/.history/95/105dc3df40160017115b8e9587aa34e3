@@ -1,0 +1,11 @@
+package com;
+
+import message.Message;
+
+public class Queue implements IQueue {
+
+	@Override
+	public void sendMessage(Message message) {
+		
+	}
+}

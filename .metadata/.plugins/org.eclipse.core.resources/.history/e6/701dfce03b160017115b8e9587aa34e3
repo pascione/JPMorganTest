@@ -1,0 +1,9 @@
+package com;
+
+import message.IMessage;
+import message.Message;
+
+public interface IQueue {
+
+		public void sendMessage(Message message);
+}

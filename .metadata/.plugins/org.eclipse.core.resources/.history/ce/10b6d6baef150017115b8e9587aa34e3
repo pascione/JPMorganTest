@@ -1,0 +1,14 @@
+package message;
+
+import java.math.BigDecimal;
+
+import product.Product;
+
+public class Message {
+
+	private Product product;
+	private long amountProduct;
+	private BigDecimal price;
+	
+	
+}

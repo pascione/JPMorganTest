@@ -1,0 +1,17 @@
+package sender;
+
+import com.IQueue;
+import com.Queue;
+
+import message.Message;
+
+public class MessageSender implements ISender{
+
+	private Queue messageQueue;
+
+	public MessageSender(Queue messageQueue) {
+		super();
+		this.messageQueue = messageQueue;
+	}
+
+}

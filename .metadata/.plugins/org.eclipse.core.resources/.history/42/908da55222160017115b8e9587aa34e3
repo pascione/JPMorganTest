@@ -1,0 +1,75 @@
+import java.math.BigDecimal;
+
+import com.Queue;
+
+import message.Message;
+import message.MessageType1;
+import message.MessageType2;
+import product.Product;
+import receiver.MessageReceiver;
+import sender.MessageSender;
+
+public class MessageApplication {
+
+	public static void main(String[] args) {
+		Queue queue = new Queue();
+		MessageSender sender = new MessageSender(queue);
+		queue.setReceiver(new MessageReceiver());
+
+		Product apple = new Product();
+		apple.setType("apple");
+		Product banana = new Product();
+		banana.setType("banana");
+		Product pineapple = new Product();
+		pineapple.setType("pineapple");
+		Product strawberry = new Product();
+		strawberry.setType("strawberry");
+		Product melon = new Product();
+		melon.setType("melon");
+		Product orange = new Product();
+		orange.setType("orange");
+		
+		
+		
+
+		MessageType1 message = new MessageType1();
+		message.setProduct(apple);
+
+		MessageType2 message2 = new MessageType2();
+		message2.setProduct(banana);
+		
+		MessageType2 message3 = new MessageType2();
+		message3.setProduct(pineapple);
+		
+		MessageType1 message4 = new MessageType1();
+		message4.setProduct(strawberry);
+		
+		MessageType1 message5 = new MessageType1();
+		message5.setProduct(melon);
+
+		MessageType2 message6 = new MessageType2();
+		message6.setProduct(orange);
+
+		for (int i = 1; i <=10; i++) {
+			message.setPrice(new BigDecimal(10));
+			message2.setQuantity(i);
+			message2.setPrice(new BigDecimal(5));
+			message3.setQuantity(i+2);
+			message3.setPrice(new BigDecimal(6));
+			message4.setPrice(new BigDecimal(7));
+			message5.setPrice(new BigDecimal(8));
+			message6.setQuantity(i+1);
+			message6.setPrice(new BigDecimal(9));
+			
+			sender.sendMessage(message);
+			sender.sendMessage(message2);
+			sender.sendMessage(message3);
+			sender.sendMessage(message4);
+			sender.sendMessage(message5);
+			sender.sendMessage(message6);
+			
+		}
+
+	}
+
+}

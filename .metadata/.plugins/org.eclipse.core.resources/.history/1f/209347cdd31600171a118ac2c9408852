@@ -1,0 +1,7 @@
+package queue;
+
+import message.Message;
+
+public interface IQueue {
+	public void queueMessage(Message message);
+}

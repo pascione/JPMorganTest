@@ -1,0 +1,22 @@
+package sender;
+
+
+import message.IMessage;
+import message.Message;
+
+public class MessageSender implements ISender{
+
+	private Queue messageQueue;
+
+	public MessageSender(Queue messageQueue) {
+		super();
+		this.messageQueue = messageQueue;
+	}
+
+	@Override
+	public void sendMessage(IMessage message) {
+		message.
+		
+	}
+
+}

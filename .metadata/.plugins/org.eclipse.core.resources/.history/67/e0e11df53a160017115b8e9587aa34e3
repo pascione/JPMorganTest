@@ -1,0 +1,8 @@
+package message;
+
+import receiver.IReceiverVisitor;
+
+public interface IMessage {
+
+	public void acceptMessage(IReceiverVisitor receiver);
+}

@@ -1,0 +1,22 @@
+package receiver;
+
+import message.Message;
+
+
+public class ReceiverManager implements IReceiver {
+
+	@Override
+	public void receiveMessage(Message message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void receiveMessage(receiver.Message message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

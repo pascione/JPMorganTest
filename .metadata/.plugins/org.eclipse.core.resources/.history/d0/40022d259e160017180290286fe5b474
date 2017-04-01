@@ -1,0 +1,21 @@
+package queue;
+
+import message.Message;
+
+public class Queue implements IQueue {
+	private IReceiver receiver;
+
+	@Override
+	public void queueMessage(Message message) {
+
+	}
+
+	public IReceiver getReceiver() {
+		return receiver;
+	}
+
+	public void setReceiver(IReceiver receiver) {
+		this.receiver = receiver;
+	}
+
+}

@@ -1,0 +1,13 @@
+package queue;
+
+import message.Message;
+
+public class Queue implements IQueue {
+	private IReceiver receiver;
+
+	@Override
+	public void queueMessage(Message message) {
+
+	}
+
+}

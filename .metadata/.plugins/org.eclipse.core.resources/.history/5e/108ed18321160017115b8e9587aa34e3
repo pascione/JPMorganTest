@@ -1,0 +1,8 @@
+package message;
+
+public class MessageType2 extends Message {
+
+	public MessageType2() {
+		
+	}
+}

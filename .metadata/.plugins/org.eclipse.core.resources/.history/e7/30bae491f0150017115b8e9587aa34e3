@@ -1,0 +1,8 @@
+package sender;
+
+import message.Message;
+
+public interface ISend {
+
+	public void sendMessage(Message message);
+}

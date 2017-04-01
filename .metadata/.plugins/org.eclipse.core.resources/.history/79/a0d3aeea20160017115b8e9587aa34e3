@@ -1,0 +1,19 @@
+package message;
+
+import java.math.BigDecimal;
+
+import product.Product;
+
+public class Message {
+
+	private Product product;
+	private long quantity;
+	private BigDecimal price;
+
+	public Message() {
+		//Default Value
+		this.quantity = 1;
+	}
+
+	
+}

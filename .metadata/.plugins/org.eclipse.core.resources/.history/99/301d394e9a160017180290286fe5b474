@@ -1,0 +1,12 @@
+package receiver;
+
+import message.IMessage;
+import message.MessageType12;
+import message.MessageType3;
+
+public interface IReceiver {
+
+	public void receiveMessage(MessageType12 message);
+
+	public void receiveMessage(MessageType3 message);
+}

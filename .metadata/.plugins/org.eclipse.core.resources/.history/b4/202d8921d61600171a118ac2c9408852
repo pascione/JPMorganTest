@@ -1,0 +1,39 @@
+import java.math.BigDecimal;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import message.Message;
+import product.Product;
+import queue.Queue;
+import receiver.IReceiver;
+import receiver.MessageReceiver;
+
+public class TestMessage1 {
+
+	private Queue queue;
+	private IReceiver receiver;
+	private Message message;
+
+	@Before
+	public void setUp() throws Exception {
+		queue = new Queue();
+		receiver = new MessageReceiver();
+		queue.setReceiver(receiver);
+		Product apple = new Product();
+		apple.setType("apple");
+
+		message = new Message();
+		message.setProduct(apple);
+		message.setPrice(new BigDecimal(10));
+	}
+
+	@Test
+	public void test() {
+		String logMessage = "";
+		logMessage = queue.queueMessage(message);
+		Assert.assertEquals("Message Received", logMessage);
+	}
+
+}

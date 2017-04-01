@@ -1,0 +1,10 @@
+package message;
+
+import receiver.IReceiver;
+
+public interface IMessage {
+
+	public void sendMessage(MessageType1 message);
+	public void sendMessage(MessageType2 message);
+	public void sendMessage(MessageType3 message);
+}

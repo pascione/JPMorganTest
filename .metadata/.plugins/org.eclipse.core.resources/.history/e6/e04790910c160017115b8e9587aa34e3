@@ -1,0 +1,18 @@
+package message;
+
+public class Message {
+
+	private SaleMessage saleItem;
+
+	public Sale getSaleItem() {
+		return saleItem;
+	}
+
+	public void setSaleItem(Sale saleItem) {
+		this.saleItem = saleItem;
+	}
+	
+	
+	
+	
+}

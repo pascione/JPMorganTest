@@ -1,0 +1,34 @@
+package message;
+
+import java.math.BigDecimal;
+
+import product.Product;
+import receiver.IReceiverVisitor;
+
+public class MessageType2 extends Message{
+	
+	public Product getProduct() {
+		return super.getProduct();
+	}
+
+	public void setProduct(Product product) {
+		super.setProduct(product);
+	}
+
+	public long getQuantity() {
+		return super.getQuantity();
+	}
+
+	public void setQuantity(long quantity) {
+		super.setQuantity(quantity);
+	}
+
+	public BigDecimal getPrice() {
+		return super.getPrice();
+	}
+
+	public void setPrice(BigDecimal price) {
+		super.setPrice(price);
+	}
+
+}

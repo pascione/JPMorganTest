@@ -1,0 +1,6 @@
+package message;
+
+public interface IMessage {
+
+	public void sendMessage(IReceiver receiver);
+}
